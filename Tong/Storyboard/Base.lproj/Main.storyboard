@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Weather-->
+        <!--날씨-->
         <scene sceneID="Hyb-Af-XVl">
             <objects>
                 <viewController id="5qy-Sa-AxE" customClass="MainViewController" customModule="Tong" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,21 +18,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X8H-Ci-Sqt">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image-sun" translatesAutoresizingMaskIntoConstraints="NO" id="X8H-Ci-Sqt">
                                 <rect key="frame" x="87.5" y="120" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="2vn-6S-hIu"/>
                                     <constraint firstAttribute="width" constant="200" id="wZk-3a-oHV"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 날씨는 ~~" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndh-tA-0AL">
-                                <rect key="frame" x="87" y="367" width="200" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="오늘의 날씨는" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndh-tA-0AL">
+                                <rect key="frame" x="87" y="367" width="200" height="32"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="X8H-Ci-Sqt" firstAttribute="centerX" secondItem="JdK-GK-oy0" secondAttribute="centerX" id="R1S-06-3hd"/>
                             <constraint firstItem="Ndh-tA-0AL" firstAttribute="centerX" secondItem="X8H-Ci-Sqt" secondAttribute="centerX" id="SLd-Pz-d7x"/>
@@ -42,13 +42,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JdK-GK-oy0"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Weather" id="UWU-WN-9zk"/>
+                    <tabBarItem key="tabBarItem" title="날씨" image="icon-sun" selectedImage="icon-sun-selected" id="UWU-WN-9zk"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRY-AG-2cH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2079" y="2266"/>
         </scene>
-        <!--Map-->
+        <!--찾기-->
         <scene sceneID="FLQ-EK-GJu">
             <objects>
                 <viewController id="ts0-cn-EMx" customClass="MapViewController" customModule="Tong" customModuleProvider="target" sceneMemberID="viewController">
@@ -59,13 +59,70 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2nP-dR-xUa">
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7r-6B-Lu2">
-                                <rect key="frame" x="20" y="40" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAa-Fa-gGc">
+                                <rect key="frame" x="20" y="40" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="image-rice-bowl-filled"/>
+                                <connections>
+                                    <action selector="FoodButtonAction:" destination="ts0-cn-EMx" eventType="touchUpInside" id="uVc-1S-QwQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ZL-92-c9S">
+                                <rect key="frame" x="20" y="40" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="image-trip-filled"/>
+                                <connections>
+                                    <action selector="CultureButtonAction:" destination="ts0-cn-EMx" eventType="touchUpInside" id="guI-f2-hbW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4M-ng-obn">
+                                <rect key="frame" x="20" y="40" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="image-toilet-filled"/>
+                                <connections>
+                                    <action selector="ToiletButtonAction:" destination="ts0-cn-EMx" eventType="touchUpInside" id="MZQ-mG-Vm7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weS-yN-xux">
+                                <rect key="frame" x="20" y="40" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="image-bus-filled"/>
+                                <connections>
+                                    <action selector="BusButtonAction:" destination="ts0-cn-EMx" eventType="touchUpInside" id="D05-17-mzN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7r-6B-Lu2">
+                                <rect key="frame" x="20" y="40" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="iuH-N1-0rK"/>
+                                    <constraint firstAttribute="width" constant="50" id="ogH-IQ-aHI"/>
+                                </constraints>
+                                <state key="normal" image="image-down"/>
+                                <connections>
+                                    <action selector="CategoryButtonAction:" destination="ts0-cn-EMx" eventType="touchUpInside" id="gOj-VE-QIZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2z3-QW-I8Z">
-                                <rect key="frame" x="325" y="40" width="30" height="30"/>
-                                <state key="normal" title="list"/>
+                                <rect key="frame" x="305" y="40" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1DA-WI-0Ne"/>
+                                    <constraint firstAttribute="width" constant="50" id="fLz-ee-Hko"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="list">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="ListButtonAction:" destination="ts0-cn-EMx" eventType="touchUpInside" id="rIX-4V-wOq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEW-Ig-RAx">
+                                <rect key="frame" x="20" y="40" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="image-bed-filled"/>
+                                <connections>
+                                    <action selector="HotelButtonAction:" destination="ts0-cn-EMx" eventType="touchUpInside" id="TaA-t2-WOy"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -81,7 +138,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hCM-Pj-cWa"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="5Ze-xW-fex"/>
+                    <tabBarItem key="tabBarItem" title="찾기" image="icon-search" selectedImage="icon-search-selected" id="5Ze-xW-fex"/>
+                    <connections>
+                        <outlet property="BusButton" destination="weS-yN-xux" id="qRu-cg-AQh"/>
+                        <outlet property="CategoryButton" destination="O7r-6B-Lu2" id="Zj6-p3-V4J"/>
+                        <outlet property="CultureButton" destination="0ZL-92-c9S" id="hbZ-BX-FrH"/>
+                        <outlet property="FoodButton" destination="iAa-Fa-gGc" id="dHp-DP-Sl6"/>
+                        <outlet property="HotelButton" destination="CEW-Ig-RAx" id="ZV4-E5-KfV"/>
+                        <outlet property="ListButton" destination="2z3-QW-I8Z" id="Kle-pk-TE3"/>
+                        <outlet property="ToiletButton" destination="z4M-ng-obn" id="r37-J8-ySC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajj-4R-Sjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,6 +159,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="aMA-sy-Hor" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9ye-0e-QGT">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -106,4 +173,17 @@
             <point key="canvasLocation" x="2079.1999999999998" y="1456.8215892053975"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon-search" width="40" height="40"/>
+        <image name="icon-search-selected" width="40" height="40"/>
+        <image name="icon-sun" width="40" height="40"/>
+        <image name="icon-sun-selected" width="40" height="40"/>
+        <image name="image-bed-filled" width="100" height="100"/>
+        <image name="image-bus-filled" width="100" height="100"/>
+        <image name="image-down" width="100" height="100"/>
+        <image name="image-rice-bowl-filled" width="100" height="100"/>
+        <image name="image-sun" width="480" height="480"/>
+        <image name="image-toilet-filled" width="100" height="100"/>
+        <image name="image-trip-filled" width="100" height="100"/>
+    </resources>
 </document>
